@@ -1,7 +1,8 @@
 ---
-- name: Configure all VMs (Common & Docker)
+- name: Configure all VMs (Common, Docker & Tailscale)
   hosts: vms
   become: yes
   roles:
     - common
     - docker
+    - tailscale
