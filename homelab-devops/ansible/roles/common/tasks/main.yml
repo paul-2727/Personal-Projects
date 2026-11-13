@@ -1,0 +1,24 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install essential packages
+  ansible.builtin.apt:
+    name:
+      - curl
+      - wget
+      - git
+      - htop
+      - nano
+      - ca-certificates
+      - gnupg
+      - lsb-release
+    state: present
+
+- name: Ensure paul user is in sudo group
+  ansible.builtin.user:
+    name: paul
+    groups: sudo
+    append: yes

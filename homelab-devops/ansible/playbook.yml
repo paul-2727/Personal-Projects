@@ -1,0 +1,7 @@
+---
+- name: Configure all VMs (Common & Docker)
+  hosts: vms
+  become: yes
+  roles:
+    - common
+    - docker
